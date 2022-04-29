@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Web/Parakeet/Css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <!--
+            Inserting Headings as per the question using h1 tag
+        -->
+        <h1> "Parakeets: Green ob Blue ?"</h1>
+    </nav>
+    <br/>
+    <br/>
+    <!--
+        Inserting Image in the page to display colors of parakeets
+    -->
+    <img src="/Web/Parakeet/images/green_parakeet.jpg" alt="" id="myimg">
+    <br/>
+    <br/>
+    <button onclick="changeImage()">Change Color</button>
+    <!--
+        Defining the function which will change color when the button is clicked 
+    -->
+    <script>
+        function changeImage(){
+            document.getElementById("myimg").src="/Web/Parakeet/images/blue_parakeet.jpg"
+        }
+    </script>
+</body>
+</html>

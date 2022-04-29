@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="form.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Information</legend>
+            <div>
+                <label for="fname">
+                    First Name :
+                </label>
+                <input type="text" id="fname"/>
+            
+                <label for="lname">
+                    Lastt Name :
+                </label>
+                <input type="text" id="lname"/>
+            </div>
+            <div>
+                <label for="email">
+                    Email Address :
+                </label>
+                <input type="email" id="email"/>
+            </div>
+            <p>The information you provide will be used in accordance with terms of our 
+                <a href="#">Privacy Policy</a>
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Global Prefernces</legend>
+            <div>
+                <label for="subs1">
+                    Unsubscube from All:
+                </label>  <input type="checkbox" value="unsbscribe all" name="unsubscribe_all" id="subs1"/>
+                <label for="subs2">Suspend Email for 90 days:</label>  <input type="checkbox" value="suspend email" name="suspend_email" id="subs2"/>
+            </div>
+            <label for="subs3"> Delete All My Information:</label>
+            <input type="checkbox" value="delete all infor" name="dlete_all_info"/>
+        </fieldset>
+        <p>Recieve and email outside of these subscription paramaeters?<br/>
+        <a href="#">Contact Us</a> for more info on why you recieved this communication</p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

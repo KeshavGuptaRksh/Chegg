@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Sandwich Orders</title>
+<meta charset="utf-8">
+<style>
+body {
+font-family: Arial, sans-serif;
+font-size: 1em;
+}
+#container {
+width: 80%;
+margin: auto;
+display: flex;
+flex-flow: column nowrap;
+align-items: center;
+padding: 10px;
+background-color: lightcyan;
+}
+
+label {
+display: inline-block; /* so width is recognized */
+width: 90px; /* so can right align */
+text-align: right;
+padding-right: 10px;
+font-weight: bold;   
+}
+label, input, button { 
+margin: 10px 2px; /* 10 top/bottom, 2 left/right */
+}
+#extras input {
+margin-left: 110px; /* to left align with name, qty */
+}
+#extras label {
+display: inline; /* remove width restriction*/
+}
+button {
+font-size: 1.5em;
+height: 2em;
+width: 150px;
+padding: .25em;
+margin-left: 110px;
+border: 2px solid darkgreen;
+background-color: palegreen;
+color: darkgreen; /* text */
+}
+button:hover { /* swap text & background */
+background-color: darkgreen;
+color: palegreen;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<h2>Sandwich Orders</h2>
+<p>Made-to-order on freshly baked bread. Piled high with capicola, salami, pepperoni and provolone cheese. Finished with lettuce, tomato and sprinkled oregano. Only $6.99 apiece. 10% discount on orders of 5 or more.</p>
+<div>
+<label for="name">Name:</label>
+<input type="text" name="name" id="name" onfocus="clearTextArea()"><br>
+<label for="qty">Quantity:</label>
+<input type="number" name="qty" id="qty" min="1" max="50" value="1" onfocus="clearTextArea()"><br>
+<div id="extras">
+<input type="checkbox" name="meat" id="meat" value="Yes" onfocus="clearTextArea()">
+<label for="meat">Extra meat? (add $1.50 ea.)</label><br>
+<input type="checkbox" name="cheese" id="cheese" value="Yes" onfocus="clearTextArea()">
+<label for="cheese">Extra cheese? (add $1.00 ea.)</label>
+</div>
+<button onclick="placeOrder()">Place Order</button>
+</div>
+<p id="output"></p> 
+<script>
+function placeOrder(){
+    var name = document.getElementById('name').value;
+    let qty = document.getElementById('qty').value;
+    var meatbutton = document.querySelector('#meat:checked')
+    var sandwich_price = 6.99
+    var cheesebutton=0.0
+    if(meatbutton == null)
+        sandwich_price=6.99;
+    else
+        sandwich_price = sandwich_price+1.50
+    var cheesebutton = document.querySelector('#cheese:checked')
+    if(cheesebutton==null)
+        sandwich_price=sandwich_price;
+    else
+        sandwich_price=sandwich_price+1.00
+    var subtotal = qty*sandwich_price;
+    var discount=0
+    if(qty>=5)
+        discount=subtotal*.10
+    subtotal = subtotal-discount
+    var sales_tax = subtotal*.08
+    var total = subtotal+sales_tax;
+    //console.log(name);
+    var output=document.getElementById('output');
+    output.innerHTML = "Order Details for "+name+'<br>Sandwich Price, $'+sandwich_price+'<br>Quantity Ordered, '+qty+'<br>Subtotal, $'+parseFloat(subtotal).toFixed(2)+'<br>Sales Tax (at 8%), $'+parseFloat(sales_tax).toFixed(2)+'<br>Total charge, $'+parseFloat(total).toFixed(2);   
+}
+function clearTextArea(){
+    document.getElementById('output').innerHTML=''
+}
+</script>
+</div>
+  
+</body>
+</html>
